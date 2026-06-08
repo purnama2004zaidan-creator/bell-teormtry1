@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void proses(int a, int max_b) {
+    for (int b = max_b; b >= 1; b--) {
+
+        if (b > a)
+            continue;
+
+        int c = a - b;
+
+        printf("%d-%d=%d\n", a, b, c);
+        printf("f turunan x ke %d\n",b);
+        if (c > 0) {
+            proses(c, b);   // b berikutnya <= b sekarang
+        }
+    }
+}
+
+int main() {
+    int a;
+    scanf("%d", &a);
+
+    proses(a, a);
+
+    return 0;
+}
